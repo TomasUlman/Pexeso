@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS styly -->
+    <link rel="stylesheet" href="style.css">
+    <title>Pexeso</title>
+</head>
+
+<body class="bodyBg1">
+
+    <!-- Tlačítku nová hra -->
+    <button class="btn newGameBtn">Nová hra</button>
+
+    <!-- Ukazatel score -->
+    <div class="scoreCard">
+        <h2>Skóre</h2>
+        <p id="score">0</p>
+        <div class="line"></div>
+        <h4>Špatné pokusy</h2>
+            <p id="attempts">0</p>
+    </div>
+
+    <!-- Tlačítko nastavení -->
+    <div class="settings"></div>
+
+    <!-- Kontajner do kterého se vykreslí hrací karty. 
+        Dle počtu párů je zvolen příslušný kontejner -->
+    <div class="container30 animated-deck"></div>
+    <div class="container20 animated-deck"></div>
+    <div class="container10 animated-deck"></div>
+
+    <!-- Oznámení konce hry -->
+    <div class="end hidden">
+        <h1>Gratulace, pexeso je dokončené!</h1>
+    </div>
+
+    <!-- Modální okno s nastavením -->
+    <div class="modal hidden">
+        <!-- Zavírací tlačítko modalu -->
+        <button class="close-modal">&times;</button>
+        <h1>Nastavení</h1>
+        <!-- Styl karet -->
+        <div class="cardStyles">
+            <label for="cardStyles">Vzhled karet: </label>
+            <img src="images/bg.jpg" alt="styl" class="cardStyle 1 activeCardStyle">
+            <img src="images/bg2.jpg" alt="styl" class="cardStyle 2">
+            <img src="images/bg3.jpg" alt="styl" class="cardStyle 3">
+            <img src="images/bg4.jpg" alt="styl" class="cardStyle 4">
+            <img src="images/bg5.jpg" alt="styl" class="cardStyle 5">
+        </div>
+        <!-- Select pro počet párů -->
+        <label for="numberOfPairs">Počet dvojic: </label>
+        <select id="numberOfPairs">
+            <option value="30">30</option>
+            <option value="20">20</option>
+            <option value="10">10</option>
+        </select>
+        <!-- Tlačítko uložit -->
+        <button class="saveSettingsBtn">Uložit</button>
+    </div>
+
+    <!-- Overlay stránky při otevřeném modálním okně -->
+    <div class="overlay hidden"></div>
+
+    <!-- Scripty -->
+    <script src="script.js"></script>
+</body>
+
+</html>

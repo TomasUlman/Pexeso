@@ -1,0 +1,403 @@
+/* Pozadí celé stránky */
+.bodyBg1 {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+.bodyBg2 {
+    background: linear-gradient(-45deg, #b1b1b1, #737373, #454545, #000000);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+.bodyBg3 {
+    background: linear-gradient(-45deg, #f30202, #f2fa04, #49e804, #00b3ff);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+.bodyBg4 {
+    background: linear-gradient(-45deg, #00a6ff, #007fc3, #004f79, #000000);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Container pro 30 párů (60 karet) */
+.container30 {
+    position: fixed;
+    left: 18%;
+    display: grid;
+    justify-content: center;
+    /* Horizontální centrování */
+    align-items: center;
+    /* Vertikální centrování */
+    grid-template-columns: repeat(10, 0fr);
+    /* 10 sloupců */
+    grid-row-gap: 0.5%;
+    /* mezera mezi jednotlivými poli */
+    grid-column-gap: 0.25%;
+    /* Menší mezera mezi sloupci */
+    margin-top: 1.5%;
+}
+
+/* Container pro 20 párů (40 karet) */
+.container20 {
+    position: fixed;
+    left: 20%;
+    display: grid;
+    justify-content: center;
+    /* Horizontální centrování */
+    align-items: center;
+    /* Vertikální centrování */
+    grid-template-columns: repeat(8, 0fr);
+    /* 8 sloupců */
+    grid-row-gap: 0.5%;
+    /* mezera mezi jednotlivými poli */
+    grid-column-gap: 0.25%;
+    /* Menší mezera mezi sloupci */
+    margin-top: 1.5%;
+}
+
+/* Container pro 10 párů (20 karet) */
+.container10 {
+    position: fixed;
+    left: 28%;
+    top: 5%;
+    display: grid;
+    justify-content: center;
+    /* Horizontální centrování */
+    align-items: center;
+    /* Vertikální centrování */
+    grid-template-columns: repeat(5, 0fr);
+    /* 5 sloupců */
+    grid-row-gap: 0.5%;
+    /* mezera mezi jednotlivými poli */
+    grid-column-gap: 0.25%;
+    /* Menší mezera mezi sloupci */
+    margin-top: 1.5%;
+}
+
+/* Velikost karty při 30 párech */
+.pairs30 {
+    width: 15vh;
+    height: 15vh;
+}
+
+/* Velikost obrázku na kartě při 30 párech */
+.pairs30 img {
+    width: 15vh;
+    height: 15vh;
+}
+
+/* Velikost karty při 20 párech */
+.pairs20 {
+    width: 18vh;
+    height: 18vh;
+}
+
+/* Velikost obrázku na kartě při 30 párech */
+.pairs20 img {
+    width: 18vh;
+    height: 18vh;
+}
+
+/* Velikost karty při 10 párech */
+.pairs10 {
+    width: 20vh;
+    height: 20vh;
+}
+
+/* Velikost obrázku na kartě při 30 párech */
+.pairs10 img {
+    width: 20vh;
+    height: 20vh;
+}
+
+/* Jedna karta - styl karty je z Freefronted */
+.card {
+    position: relative;
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+/* Pozadí rubu karet */
+.cardBg1 {
+    background-image: url('images/bg.jpg');
+    background-size: cover;
+}
+
+.cardBg2 {
+    background-image: url('images/bg2.jpg');
+    background-size: cover;
+}
+
+.cardBg3 {
+    background-image: url('images/bg3.jpg');
+    background-size: cover;
+}
+
+.cardBg4 {
+    background-image: url('images/bg4.jpg');
+    background-size: cover;
+}
+
+.cardBg5 {
+    background-image: url('images/bg5.jpg');
+    background-size: cover;
+}
+
+.card:hover {
+    scale: 1.05;
+    box-shadow: 0px 0px 40px -15px rgba(66, 68, 90, 1);
+}
+
+/* Přední strana karty */
+.card__face {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
+    /*hide element on back*/
+}
+
+/* Rotace na zadní stranu */
+.card__face--back {
+    /*  rotated on start so the front is visible first */
+    transform: rotateY(180deg);
+}
+
+/* Otočení karty na přední stranu */
+.card.is-flipped {
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+/* Zneviditelnění + animace posunu karty (používá se při uhádnutí */
+.invisible {
+    animation: slide-bottom-right 1s linear both;
+    z-index: 100;
+    visibility: hidden;
+}
+
+@keyframes slide-bottom-right {
+    0% {
+        transform: translateY(0) translateX(0)
+    }
+
+    100% {
+        transform: translateY(2000%) translateX(2000%)
+    }
+}
+
+/* Tlačítko nová hra */
+.btn {
+    position: fixed;
+    bottom: 10%;
+    left: 5%;
+    padding: 0.7em 1.9em;
+    border: 0.16em solid rgb(255, 255, 255);
+    border-radius: 2em;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    background-color: rgba(255, 255, 255, 0);
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.btn:active {
+    transform: scale(0.9);
+}
+
+.btn:hover {
+    color: black;
+    background-color: rgb(255, 255, 255);
+}
+
+/* Div s ukazately skóre */
+.scoreCard {
+    position: fixed;
+    top: 10%;
+    left: 3%;
+    padding: 0.5em 1.7em;
+    border: 0.16em solid rgb(255, 255, 255);
+    border-radius: 2em;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Dělící čára mezi data na ukazatelu skóre */
+.line {
+    height: 1px;
+    background-color: white;
+    margin: 1em 0;
+}
+
+/* Div s hláškou o dokončení pexesa */
+.end {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+    color: #ffffff;
+    text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+    height: 90vh;
+}
+
+/* Skrytí elementu */
+.hidden {
+    display: none;
+}
+
+/* Tlačítko nastavení */
+.settings {
+    position: fixed;
+    left: 92%;
+    top: 5%;
+    height: 7vh;
+    width: 7vh;
+    background-image: url('images/settings.png');
+    background-size: cover;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+    cursor: pointer;
+}
+
+/* Přidání efektu zmačknutí */
+.settings:active {
+    transform: scale(0.9);
+}
+
+/* Animace */
+.animated-deck {
+    animation: blur-in-expand 0.5s linear both;
+}
+
+@keyframes blur-in-expand {
+    0% {
+        transform: scale(0);
+        filter: blur(12px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+/* Styly modálního okna */
+/* Modální okno */
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+    padding: 6rem;
+    border-radius: 5px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* Tlačítko křížek na modálním oknu */
+.close-modal {
+    position: absolute;
+    top: 0.2rem;
+    right: 2rem;
+    font-size: 5rem;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* Prostor okolo modálního okna, který překryje stránku */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+
+/* Nadpis modalu */
+.modal h1 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+/* Tlačítko uložit na modálním okně */
+.saveSettingsBtn {
+    position: absolute;
+    top: 80%;
+    left: 90%;
+    padding: 0.5em 1em;
+    border: 0.16em solid rgb(0, 0, 0);
+    border-radius: 2em;
+    background-color: rgba(255, 255, 255, 0.982);
+    color: #000000;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Select na modálním okně */
+#numberOfPairs {
+    margin-top: 2rem;
+    margin-left: 1rem;
+}
+
+/* Obrázky zadních stran karet na modálním okně */
+.cardStyles img {
+    height: 8vh;
+    width: 8vh;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+/* Label ke stylům karet na modálním okně */
+.cardStyles label {
+    position: relative;
+    top: -1.5rem;
+}
+
+/* Rámeček kolem aktivního stylu */
+.activeCardStyle {
+    border: 0.2em solid rgb(245, 3, 3);
+    padding: 0.2em;
+}
